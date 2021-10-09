@@ -20,7 +20,7 @@ yarn build
 
 to bundle your application
 
-and 
+and start
 ```
 npm start
 ```
