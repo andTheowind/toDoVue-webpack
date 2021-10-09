@@ -4,7 +4,7 @@ This project has been created using **webpack-cli**, you can now run
 first
 
 ```
-yarn build
+npm install
 ```
 next
 
