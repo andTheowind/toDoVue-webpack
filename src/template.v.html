@@ -1,0 +1,75 @@
+<div id="wrapper" 
+         class="light-theme-body" 
+         :class="{'dark-theme-body': isActive}"
+    >
+        <div class="header light-theme-header" 
+             :class="{'dark-theme-header': isActive}"
+        >
+            <div class="logo light-theme-logo" 
+                 :class="{'dark-theme-logo': isActive}" 
+            >
+                <a href="https://github.com/andtheowind" target="_blank">andtheowind</a>
+            </div>
+            <!-- /.logo -->
+            <div class="switch-theme">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round" @click="isActive = !isActive"></span>
+                </label>
+            </div>
+            <!-- /.switch-theme -->
+        </div>
+        <!-- /.header -->
+        <div class="container">
+            <h1 class="light-theme-h1" :class="{'dark-theme-h1': isActive}">Список дел на Vue</h1>
+            <div class="form">
+                <input type="text" 
+                       class="light-input" 
+                       id="inputTask" 
+                       autocomplete="off"
+                       v-bind:placeholder="inputPlaceholder" 
+                       v-bind:value="inputValue" 
+                       v-on:input="inputCreateTaskHandler"
+                       v-on:keypress="inputKeyPress"
+                       :class="{'dark-input': isActive}"
+                >
+                <button v-on:click="addNewTask">+</button>
+            </div>
+            <!-- /.form -->
+            <ul class="list" v-if="tasks.length !== 0">
+                <li class="card light-theme-card" 
+                    :class="{'dark-theme-card': isActive}" 
+                    v-for="(task, index) in tasks"
+                >
+                    <span class="card-txt">{{ task }}</span>
+                    <button class="closeTask" v-on:click="deleteTask(index)">
+                        <svg class="icon" width="23" height="23" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 2L26 26" stroke="#455377" stroke-width="3"></path>
+                            <path d="M26 2L2 26" stroke="#455377" stroke-width="3"></path>
+                        </svg>
+                    </button>
+                </li>
+                <!-- /.card -->
+            </ul>
+            <!-- /.list -->
+        </div>
+        <!-- /.container -->
+        <div class="footer light-footer" :class="{'dark-footer': isActive}">
+            <div class="hoiDoesItWork">
+                <a href="https://github.com/andTheowind/toDo-Vue">
+                    <p>Как работает приложение?</p>
+                </a>
+            </div>
+            <!-- /.hoiDoesItWork -->
+            <div id="line-block">
+                <p class="line">|</p>
+            </div>
+            <!-- /.line-block -->
+            <div>
+                <a href="#"><p>Политика конфиденциальности</p></a>
+            </div>
+            <!-- /.personal policy -->
+        </div>
+        <!-- /.footer -->
+    </div>
+    <!-- /.wrapper -->
